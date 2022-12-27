@@ -102,6 +102,7 @@ module.exports = Handlebones.ModelView.extend({
       }
 
     }
+    ctx.showImportantCheckbox = preload.conversation.priority_type; // TODO: set up feature flagging
     ctx.social = socialCtx;
     ctx.noModSet = !ctx.spamOn && !ctx.otOn && !ctx.importantOn;
     ctx.canSubscribe = !!preload.firstPtpt || this.votesByMe.size() > 0;
@@ -475,13 +476,20 @@ module.exports = Handlebones.ModelView.extend({
       });
       return false;
     };
-    this.getWeight = function() {
-      if ($("#weight_low").prop("checked")) {
-        return -1;
-      } else if ($("#weight_high").prop("checked")) {
-        return 1;
+    // note: instead of -1/1/0, weight is now the boolean high_priority
+    // this.getWeight = function () {
+    //   if ($("#weight_low").prop("checked")) {
+    //     return -1;
+    //   } else if ($("#weight_high").prop("checked")) {
+    //     return 1;
+    //   }
+    //   return 0;
+    // };
+    this.highPriority = function () {
+      if ($("#weight_high").prop("checked")) {
+        return true;
       }
-      return 0;
+      return false;
     };
     this.participantAgreed = function(e) {
       this.mostRecentVoteType = "agree";
@@ -493,7 +501,7 @@ module.exports = Handlebones.ModelView.extend({
       this.wipVote = {
         vote: -1,
         conversation_id: conversation_id,
-        weight: this.getWeight(),
+        high_priority: this.highPriority(),
         tid: tid
       };
       serverClient.addToVotesByMe(this.wipVote);
@@ -508,7 +516,7 @@ module.exports = Handlebones.ModelView.extend({
       this.wipVote = {
         vote: 1,
         conversation_id: conversation_id,
-        weight: this.getWeight(),
+        high_priority: this.highPriority(),
         tid: tid
       };
       serverClient.addToVotesByMe(this.wipVote);
@@ -523,7 +531,7 @@ module.exports = Handlebones.ModelView.extend({
       this.wipVote = {
         vote: 0,
         conversation_id: conversation_id,
-        weight: this.getWeight(),
+        high_priority: this.highPriority(), // TODO: specify in help text that this is for "important but unsure"
         tid: tid
       };
       serverClient.addToVotesByMe(this.wipVote);
