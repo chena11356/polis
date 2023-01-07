@@ -69,12 +69,6 @@ extract-bundles: ## Extract bundles from file-server for cloud deployment
 	/bin/rm -rf build
 	docker cp polis-${TAG}-file-server-1:/app/build/ build
 
-stop: ## Stop all Docker containers
-	docker-compose down
-
-hash: ## Show current short hash
-	@echo Git hash: ${GIT_HASH}
-
 FILE_1 = /dev/null
 FILE_1 = /dev/null
 
