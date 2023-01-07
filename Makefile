@@ -69,6 +69,52 @@ extract-bundles: ## Extract bundles from file-server for cloud deployment
 	/bin/rm -rf build
 	docker cp polis-${TAG}-file-server-1:/app/build/ build
 
+stop: ## Stop all Docker containers
+	docker-compose down
+
+hash: ## Show current short hash
+	@echo Git hash: ${GIT_HASH}
+
+FILE_1 = /dev/null
+FILE_1 = /dev/null
+
+compare_config_files_sub:
+	@cmp -s ${FILE_1} ${FILE_2}; \
+	RETVAL=$$?; \
+	if [ $$RETVAL -ne 0 ]; then \
+			echo "ERROR: ${FILE_1} and ${FILE_2} are not identical"; \
+			diff ${FILE_1} ${FILE_2}; \
+			echo "ERROR: ${FILE_1} and ${FILE_2} are not identical"; \
+			exit 1; \
+	else \
+			echo "SAME"; \
+	fi
+
+compare_config_files_1: FILE_1=client-admin/polis.config.template.js
+compare_config_files_1: FILE_2=client-participation/polis.config.template.js
+compare_config_files_1: compare_config_files_sub
+
+compare_config_files: compare_config_files_1
+
+temp:
+	DIFF_STATUS := $(shell diff \
+		client-admin/polis.config.template.js \
+		client-participation/polis.config.template.js 2> /dev/null; echo $$?)
+	@echo diff status ${DIFF_STATUS}
+
+# ifeq ($(SVN_INFO),1)
+#     $(error "Not an SVN repo...")
+# endif
+# ENV_CONFIG = config/docker-dev-common.env
+# JS_CONFIG = config/polis.config.template.common.js
+# update-config: ## Copy common config files into docker directories
+# 	cp -f ${ENV_CONFIG} math/docker-dev.env
+# 	cp -f ${ENV_CONFIG} server/docker-db-dev.env
+# 	cp -f ${ENV_CONFIG} server/docker-dev.env
+# 	cp -f ${JS_CONFIG} client-admin/polis.config.template.js
+# 	cp -f ${JS_CONFIG} client-participation/polis.config.template.js
+# 	cp -f ${JS_CONFIG} client-report/polis.config.template.js
+
 e2e-install: e2e/node_modules ## Install Cypress E2E testing tools
 	$(E2E_RUN) npm install
 
@@ -99,7 +145,8 @@ rbs: start-rebuild
 	@true
 
 .PHONY: help pull start stop rm-containers rm-volumes rm-images rm-ALL hash start-rebuild restart-FULL-REBUILD \
-	rm-ALL-ALL-TAGS e2e-install e2e-prepare e2e-run-minimal e2e-run-standalone e2e-run-secret e2e-run-subset e2e-run-all
+	rm-ALL-ALL-TAGS e2e-install e2e-prepare e2e-run-minimal e2e-run-standalone e2e-run-secret e2e-run-subset e2e-run-all \
+	help compare_config_files my_compare
 
 help:
 	@echo 'Usage: make <command>'
