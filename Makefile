@@ -65,6 +65,10 @@ restart-FULL-REBUILD: stop clean-ALL ## Remove and restart all Docker containers
 	docker-compose down
 	docker-compose up --detach --build
 
+extract-bundles: ## Extract bundles from file-server for cloud deployment
+	/bin/rm -rf build
+	docker cp polis-${TAG}-file-server-1:/app/build/ build
+
 e2e-install: e2e/node_modules ## Install Cypress E2E testing tools
 	$(E2E_RUN) npm install
 
