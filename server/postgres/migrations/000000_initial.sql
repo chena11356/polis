@@ -391,8 +391,6 @@ CREATE TABLE participants_extended(
 
     permanent_cookie VARCHAR(32),
     origin VARCHAR(9999),
-    encrypted_ip_address VARCHAR(9999),
-    encrypted_x_forwarded_for VARCHAR(9999),
 
     UNIQUE (zid, uid)
 );
