@@ -4,6 +4,7 @@ BASEURL ?= https://127.0.0.1.sslip.io
 E2E_RUN = cd e2e; CYPRESS_BASE_URL=$(BASEURL)
 export ENV_FILE = .env
 export TAG = $(shell grep -e ^TAG ${ENV_FILE} | awk -F'[=]' '{gsub(/ /,""); print $$2}')
+export S3_BUCKET = $(shell grep -e ^S3_BUCKET ${ENV_FILE} | awk -F'[=]' '{gsub(/ /,""); print $$2}')
 export GIT_HASH = $(shell git rev-parse --short HEAD)
 export COMPOSE_FILE_ARGS = -f docker-compose.yml -f docker-compose.dev.yml
 
@@ -69,6 +70,10 @@ extract-bundles: ## Extract bundles from file-server for cloud deployment
 	/bin/rm -rf build
 	docker cp polis-${TAG}-file-server-1:/app/build/ build
 
+upload-bundles: ## upload bundles to aws s3
+	aws s3 cp --recursive build s3://${S3_BUCKET}/build
+
+
 FILE_1 = /dev/null
 FILE_1 = /dev/null
 
@@ -95,19 +100,6 @@ temp:
 		client-admin/polis.config.template.js \
 		client-participation/polis.config.template.js 2> /dev/null; echo $$?)
 	@echo diff status ${DIFF_STATUS}
-
-# ifeq ($(SVN_INFO),1)
-#     $(error "Not an SVN repo...")
-# endif
-# ENV_CONFIG = config/docker-dev-common.env
-# JS_CONFIG = config/polis.config.template.common.js
-# update-config: ## Copy common config files into docker directories
-# 	cp -f ${ENV_CONFIG} math/docker-dev.env
-# 	cp -f ${ENV_CONFIG} server/docker-db-dev.env
-# 	cp -f ${ENV_CONFIG} server/docker-dev.env
-# 	cp -f ${JS_CONFIG} client-admin/polis.config.template.js
-# 	cp -f ${JS_CONFIG} client-participation/polis.config.template.js
-# 	cp -f ${JS_CONFIG} client-report/polis.config.template.js
 
 e2e-install: e2e/node_modules ## Install Cypress E2E testing tools
 	$(E2E_RUN) npm install
