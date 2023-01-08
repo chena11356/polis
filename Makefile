@@ -71,8 +71,16 @@ extract-bundles: ## Extract bundles from file-server for cloud deployment
 	docker cp polis-${TAG}-file-server-1:/app/build/ build
 
 upload-bundles: ## upload bundles to aws s3
-	aws s3 cp --recursive build s3://${S3_BUCKET}/build
-
+	aws s3 cp build s3://${S3_BUCKET}/build \
+	--recursive \
+	--metadata-directive REPLACE \
+	--acl public-read \
+	--cache-control max-age=31536000
+	aws s3 cp build s3://${S3_BUCKET} \
+	--recursive \
+	--metadata-directive REPLACE \
+	--acl public-read \
+	--cache-control max-age=31536000
 
 FILE_1 = /dev/null
 FILE_1 = /dev/null
