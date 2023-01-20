@@ -17,7 +17,7 @@ version: "3.4"
 
 services:
   server:
-    env_file: ./docker-dev-common.env
+    env_file: ./server/docker-dev.env
     image: docker.io/compdem/polis-server:${TAG}
     build:
       context: ./server
@@ -33,7 +33,7 @@ services:
     scale: 1
 
   math:
-    env_file: ./docker-dev-common.env
+    env_file: ./math/docker-dev.env
     image: docker.io/compdem/polis-math:${TAG}
     depends_on:
       - "postgres"
@@ -45,7 +45,7 @@ services:
       - "polis-net"
 
   postgres:
-    env_file: ./docker-dev-common.env
+    env_file: ./server/docker-db-dev.env
     image: docker.io/compdem/polis-postgres:${TAG}
     restart: always
     build:

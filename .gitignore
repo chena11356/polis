@@ -1,7 +1,1 @@
 prod.env
-*~
-.history/
-math/.cpcache/
-node_modules
-build
-node_modules

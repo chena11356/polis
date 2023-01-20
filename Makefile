@@ -1,10 +1,14 @@
+## TTD:
+# make start; make stop
+# make PROD start; make PROD stop
+# update TAG
+
 SHELL=/bin/bash
 
 BASEURL ?= https://127.0.0.1.sslip.io
 E2E_RUN = cd e2e; CYPRESS_BASE_URL=$(BASEURL)
 export ENV_FILE = .env
 export TAG = $(shell grep -e ^TAG ${ENV_FILE} | awk -F'[=]' '{gsub(/ /,""); print $$2}')
-export S3_BUCKET = $(shell grep -e ^S3_BUCKET ${ENV_FILE} | awk -F'[=]' '{gsub(/ /,""); print $$2}')
 export GIT_HASH = $(shell git rev-parse --short HEAD)
 export COMPOSE_FILE_ARGS = -f docker-compose.yml -f docker-compose.dev.yml
 
@@ -13,7 +17,7 @@ PROD: ## Run in prod mode (e.g. `make PROD start`, etc.)
 	$(eval TAG = $(shell grep -e ^TAG ${ENV_FILE} | awk -F'[=]' '{gsub(/ /,"");print $$2}'))
 	$(eval COMPOSE_FILE_ARGS = -f docker-compose.yml)
 
-echo_vars:
+echo_vars: 
 	@echo ENV_FILE=${ENV_FILE}
 	@echo TAG=${TAG}
 
@@ -59,56 +63,6 @@ start-FULL-REBUILD: echo_vars stop rm-ALL ## Remove and restart all Docker conta
 	docker-compose ${COMPOSE_FILE_ARGS} --env-file ${ENV_FILE} down
 	docker-compose ${COMPOSE_FILE_ARGS} --env-file ${ENV_FILE} up --build
 
-restart-FULL-REBUILD: stop clean-ALL ## Remove and restart all Docker containers, volumes, and images where (polis_tag="${TAG}")
-	docker-compose build --no-cache
-	docker-compose down
-	docker-compose up --detach --build
-	docker-compose down
-	docker-compose up --detach --build
-
-extract-bundles: ## Extract bundles from file-server for cloud deployment
-	/bin/rm -rf build
-	docker cp polis-${TAG}-file-server-1:/app/build/ build
-
-upload-bundles: ## upload bundles to aws s3
-	aws s3 cp build s3://${S3_BUCKET}/build \
-	--recursive \
-	--metadata-directive REPLACE \
-	--acl public-read \
-	--cache-control max-age=31536000
-	aws s3 cp build s3://${S3_BUCKET} \
-	--recursive \
-	--metadata-directive REPLACE \
-	--acl public-read \
-	--cache-control max-age=31536000
-
-FILE_1 = /dev/null
-FILE_1 = /dev/null
-
-compare_config_files_sub:
-	@cmp -s ${FILE_1} ${FILE_2}; \
-	RETVAL=$$?; \
-	if [ $$RETVAL -ne 0 ]; then \
-			echo "ERROR: ${FILE_1} and ${FILE_2} are not identical"; \
-			diff ${FILE_1} ${FILE_2}; \
-			echo "ERROR: ${FILE_1} and ${FILE_2} are not identical"; \
-			exit 1; \
-	else \
-			echo "SAME"; \
-	fi
-
-compare_config_files_1: FILE_1=client-admin/polis.config.template.js
-compare_config_files_1: FILE_2=client-participation/polis.config.template.js
-compare_config_files_1: compare_config_files_sub
-
-compare_config_files: compare_config_files_1
-
-temp:
-	DIFF_STATUS := $(shell diff \
-		client-admin/polis.config.template.js \
-		client-participation/polis.config.template.js 2> /dev/null; echo $$?)
-	@echo diff status ${DIFF_STATUS}
-
 e2e-install: e2e/node_modules ## Install Cypress E2E testing tools
 	$(E2E_RUN) npm install
 
@@ -139,8 +93,7 @@ rbs: start-rebuild
 	@true
 
 .PHONY: help pull start stop rm-containers rm-volumes rm-images rm-ALL hash start-rebuild restart-FULL-REBUILD \
-	rm-ALL-ALL-TAGS e2e-install e2e-prepare e2e-run-minimal e2e-run-standalone e2e-run-secret e2e-run-subset e2e-run-all \
-	help compare_config_files my_compare
+	rm-ALL-ALL-TAGS e2e-install e2e-prepare e2e-run-minimal e2e-run-standalone e2e-run-secret e2e-run-subset e2e-run-all
 
 help:
 	@echo 'Usage: make <command>'
