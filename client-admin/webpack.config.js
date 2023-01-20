@@ -24,12 +24,23 @@ var polisConfig = require("./polis.config");
 module.exports = (env, options) => {
   var isDevBuild = options.mode === 'development';
   var isDevServer = process.env.WEBPACK_SERVE;
-  var chunkHashFragment = (isDevBuild || isDevServer) ? '' : '.[chunkhash:8]';
+  var chunkHashFragment = (isDevBuild || isDevServer) ? '' : '_[chunkhash:8]';
+  var d = new Date();
+  var tokenParts = [
+    d.getFullYear(),
+    d.getMonth() + 1,
+    d.getDate(),
+    d.getHours(),
+    d.getMinutes(),
+    d.getSeconds(),
+  ];
+  var unique_token = tokenParts.join("_");
+  var versionString = unique_token;
   return {
     entry: ["./src/index"],
     output: {
       publicPath: '/',
-      filename: `static/js/admin_bundle${chunkHashFragment}.js`,
+      filename: `cached/${versionString}${chunkHashFragment}/js/admin_bundle.js`,
       path: path.resolve(__dirname, "build"),
       clean: true,
     },
@@ -113,7 +124,10 @@ module.exports = (env, options) => {
                 'Cache-Control':
                   'no-transform,public,max-age=31536000,s-maxage=31536000'
               }
-              writeHeadersJson('static/js/*.js?(.map)', headersData)
+              // @TODO: I don't understand why "?(.map)" is used and why it matches
+              // @TODO: but, I don't want to break anything, so I am leaving it in.
+              writeHeadersJson(`cached/${versionString}*/js/*.js?(.map)`, headersData)
+              writeHeadersJson(`cached/${versionString}*/js/*.js`, headersData)
             }
 
             function writeHeadersJsonMisc() {
