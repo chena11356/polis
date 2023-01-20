@@ -1,7 +1,7 @@
+prod.env
 *~
 .history/
 math/.cpcache/
 node_modules
-prod.env
 build
 node_modules
