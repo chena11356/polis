@@ -1,0 +1,2239 @@
+cd e2e; CYPRESS_BASE_URL=https://127.0.0.1.sslip.io npm run e2e:all
+
+> polis-e2e@1.0.0 e2e:all
+> cypress run --spec 'cypress/e2e/**' --browser=electron
+
+
+====================================================================================================
+
+  (Run Starting)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Cypress:        10.8.0                                                                         │
+  │ Browser:        Electron 102 (headless)                                                        │
+  │ Node Version:   v16.15.1 (/Users/crkrenn/.nvm/versions/node/v16.15.1/bin/node)                 │
+  │ Specs:          15 found (emails.cy.js, configure.cy.js, convo_access.cy.js, create_user.cy.js │
+  │                 , home.cy.js, public_pages.cy.js, routes.cy.js, share.cy.js, signin.cy.js, com │
+  │                 ment-translation.secrets.cy.js, embeds.cy.js, i18n.cy.js, integration.cy.js, k │
+  │                 itchensink.cy.js, socia...)                                                    │
+  │ Searched:       cypress/e2e/**                                                                 │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  emails.cy.js                                                                   (1 of 15)
+
+
+  Emails
+    1) "before each" hook for "sends for failed password reset"
+      cy:request ✘  DELETE http://127.0.0.1.sslip.io:1080/email/all
+                    Network error: connect ECONNREFUSED 127.0.0.1:1080
+
+
+
+
+  0 passing (788ms)
+  1 failing
+
+  1) Emails
+       "before each" hook for "sends for failed password reset":
+     CypressError: `cy.request()` failed trying to load:
+
+http://127.0.0.1.sslip.io:1080/email/all
+
+We attempted to make an http request to this URL but the request failed without a response.
+
+We received this error at the network level:
+
+  > Error: connect ECONNREFUSED 127.0.0.1:1080
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: DELETE
+URL: http://127.0.0.1.sslip.io:1080/email/all
+
+-----------------------------------------------------------
+
+Common situations why this would fail:
+  - you don't have internet access
+  - you forgot to run / boot your web server
+  - your web server isn't accessible
+  - you have weird network configuration settings on your computer
+
+https://on.cypress.io/request
+
+Because this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Emails`
+      at <unknown> (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:143997:78)
+      at tryCatcher (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:11318:23)
+      at <unknown> (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6457:37)
+      at tryCatcher (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:11318:23)
+      at Promise._settlePromiseFromHandler (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9253:31)
+      at Promise._settlePromise (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9310:18)
+      at Promise._settlePromise0 (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9355:10)
+      at Promise._settlePromises (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9431:18)
+      at _drainQueueStep (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6025:12)
+      at _drainQueue (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6018:9)
+      at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6034:5)
+      at Async.drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:5904:14)
+  From Your Spec Code:
+      at Context.eval (webpack:///./cypress/e2e/emails.cy.js:15:7)
+  
+  From Node.js Internals:
+    RequestError: Error: connect ECONNREFUSED 127.0.0.1:1080
+        at new RequestError (/Users/crkrenn/Library/Caches/Cypress/10.8.0/Cypress.app/Contents/Resources/app/node_modules/request-promise-core/lib/errors.js:14:15)
+        at Request.plumbing.callback (/Users/crkrenn/Library/Caches/Cypress/10.8.0/Cypress.app/Contents/Resources/app/node_modules/request-promise-core/lib/plumbing.js:87:29)
+        at Request.RP$callback [as _callback] (/Users/crkrenn/Library/Caches/Cypress/10.8.0/Cypress.app/Contents/Resources/app/node_modules/request-promise-core/lib/plumbing.js:46:31)
+        at self.callback (/Users/crkrenn/Library/Caches/Cypress/10.8.0/Cypress.app/Contents/Resources/app/node_modules/@cypress/request/request.js:183:22)
+        at Request.emit (node:events:526:28)
+        at Request.emit (node:domain:475:12)
+        at Request.onRequestError (/Users/crkrenn/Library/Caches/Cypress/10.8.0/Cypress.app/Contents/Resources/app/node_modules/@cypress/request/request.js:869:8)
+        at ClientRequest.emit (node:events:538:35)
+        at ClientRequest.emit (node:domain:475:12)
+        at Socket.socketErrorListener (node:_http_client:442:9)
+        at Socket.emit (node:events:526:28)
+        at Socket.emit (node:domain:475:12)
+        at emitErrorNT (node:internal/streams/destroy:157:8)
+        at emitErrorCloseNT (node:internal/streams/destroy:122:3)
+        at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      1                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     emails.cy.js                                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/emai     (1280x720)
+     ls.cy.js/Emails -- sends for failed password reset -- before each hook (failed).               
+     png                                                                                            
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/emails.cy.js.mp4                                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  configure.cy.js                                                                (2 of 15)
+
+
+  Conversation: Configure
+    Closing
+      1) "before all" hook for "responds properly to being closed"
+    Defaults
+      2) "before all" hook for "creates with proper defaults"
+
+
+  0 passing (577ms)
+  2 failing
+
+  1) Conversation: Configure
+       Closing
+         "before all" hook for "responds properly to being closed":
+     CypressError: `cy.request()` failed on:
+
+https://127.0.0.1.sslip.io/api/v3/auth/login
+
+The response we received from your web server was:
+
+  > 403: Forbidden
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://127.0.0.1.sslip.io/api/v3/auth/login
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/10.8.0 Chrome/102.0.5005.148 Electron/19.0.8 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate",
+  "content-type": "application/json",
+  "content-length": 58
+}
+Body: {"email":"moderator@polis.test","password":"testpassword"}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 403 - Forbidden
+Headers: {
+  "server": "nginx/1.21.5",
+  "date": "Sat, 21 Jan 2023 02:50:00 GMT",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "connection": "keep-alive",
+  "cache-control": "no-cache",
+  "access-control-allow-origin": "https://localhost:5000",
+  "access-control-allow-headers": "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With",
+  "access-control-allow-methods": "GET, PUT, POST, DELETE, OPTIONS",
+  "access-control-allow-credentials": "true",
+  "vary": "Accept-Encoding",
+  "content-encoding": "gzip"
+}
+Body: polis_err_login_unknown_user_or_password_noresults
+
+
+https://on.cypress.io/request
+
+Because this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Closing`
+      at <unknown> (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:143968:80)
+      at tryCatcher (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:11318:23)
+      at Promise._settlePromiseFromHandler (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9253:31)
+      at Promise._settlePromise (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9310:18)
+      at Promise._settlePromise0 (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9355:10)
+      at Promise._settlePromises (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9435:18)
+      at _drainQueueStep (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6025:12)
+      at _drainQueue (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6018:9)
+      at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6034:5)
+      at Async.drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:5904:14)
+  From Your Spec Code:
+      at loginByPassword (webpack:///./cypress/support/commands.js:71:5)
+      at Context.eval (webpack:///./cypress/support/commands.js:85:4)
+
+  2) Conversation: Configure
+       Defaults
+         "before all" hook for "creates with proper defaults":
+     CypressError: `cy.request()` failed on:
+
+https://127.0.0.1.sslip.io/api/v3/auth/login
+
+The response we received from your web server was:
+
+  > 403: Forbidden
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://127.0.0.1.sslip.io/api/v3/auth/login
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/10.8.0 Chrome/102.0.5005.148 Electron/19.0.8 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate",
+  "content-type": "application/json",
+  "content-length": 58
+}
+Body: {"email":"moderator@polis.test","password":"testpassword"}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 403 - Forbidden
+Headers: {
+  "server": "nginx/1.21.5",
+  "date": "Sat, 21 Jan 2023 02:50:00 GMT",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "connection": "keep-alive",
+  "cache-control": "no-cache",
+  "access-control-allow-origin": "https://localhost:5000",
+  "access-control-allow-headers": "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With",
+  "access-control-allow-methods": "GET, PUT, POST, DELETE, OPTIONS",
+  "access-control-allow-credentials": "true",
+  "vary": "Accept-Encoding",
+  "content-encoding": "gzip"
+}
+Body: polis_err_login_unknown_user_or_password_noresults
+
+
+https://on.cypress.io/request
+
+Because this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Defaults`
+      at <unknown> (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:143968:80)
+      at tryCatcher (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:11318:23)
+      at Promise._settlePromiseFromHandler (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9253:31)
+      at Promise._settlePromise (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9310:18)
+      at Promise._settlePromise0 (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9355:10)
+      at Promise._settlePromises (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9435:18)
+      at _drainQueueStep (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6025:12)
+      at _drainQueue (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6018:9)
+      at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6034:5)
+      at Async.drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:5904:14)
+  From Your Spec Code:
+      at loginByPassword (webpack:///./cypress/support/commands.js:71:5)
+      at Context.eval (webpack:///./cypress/support/commands.js:85:4)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      2                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  2                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     configure.cy.js                                                                  │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/clie     (1280x720)
+     nt-admin/configure.cy.js/Conversation Configure -- Closing -- responds properly                
+     to being closed -- before all hook (failed).png                                                
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/clie     (1280x720)
+     nt-admin/configure.cy.js/Conversation Configure -- Defaults -- creates with prop               
+     er defaults -- before all hook (failed).png                                                    
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/configure.cy.js.mp4                              
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  convo_access.cy.js                                                             (3 of 15)
+
+
+  Access control
+    1) "before all" hook for "Cannot access /m/:id"
+
+
+  0 passing (320ms)
+  1 failing
+
+  1) Access control
+       "before all" hook for "Cannot access /m/:id":
+     CypressError: `cy.request()` failed on:
+
+https://127.0.0.1.sslip.io/api/v3/auth/login
+
+The response we received from your web server was:
+
+  > 403: Forbidden
+
+This was considered a failure because the status code was not `2xx` or `3xx`.
+
+If you do not want status codes to cause failures pass the option: `failOnStatusCode: false`
+
+-----------------------------------------------------------
+
+The request we sent was:
+
+Method: POST
+URL: https://127.0.0.1.sslip.io/api/v3/auth/login
+Headers: {
+  "Connection": "keep-alive",
+  "user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/10.8.0 Chrome/102.0.5005.148 Electron/19.0.8 Safari/537.36",
+  "accept": "*/*",
+  "accept-encoding": "gzip, deflate",
+  "content-type": "application/json",
+  "content-length": 58
+}
+Body: {"email":"moderator@polis.test","password":"testpassword"}
+
+-----------------------------------------------------------
+
+The response we got was:
+
+Status: 403 - Forbidden
+Headers: {
+  "server": "nginx/1.21.5",
+  "date": "Sat, 21 Jan 2023 02:50:03 GMT",
+  "content-type": "application/json",
+  "transfer-encoding": "chunked",
+  "connection": "keep-alive",
+  "cache-control": "no-cache",
+  "access-control-allow-origin": "https://localhost:5000",
+  "access-control-allow-headers": "Cache-Control, Pragma, Origin, Authorization, Content-Type, X-Requested-With",
+  "access-control-allow-methods": "GET, PUT, POST, DELETE, OPTIONS",
+  "access-control-allow-credentials": "true",
+  "vary": "Accept-Encoding",
+  "content-encoding": "gzip"
+}
+Body: polis_err_login_unknown_user_or_password_noresults
+
+
+https://on.cypress.io/request
+
+Because this error occurred during a `before all` hook we are skipping the remaining tests in the current suite: `Access control`
+      at <unknown> (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:143968:80)
+      at tryCatcher (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:11318:23)
+      at Promise._settlePromiseFromHandler (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9253:31)
+      at Promise._settlePromise (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9310:18)
+      at Promise._settlePromise0 (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9355:10)
+      at Promise._settlePromises (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:9435:18)
+      at _drainQueueStep (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6025:12)
+      at _drainQueue (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6018:9)
+      at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:6034:5)
+      at Async.drainQueues (https://127.0.0.1.sslip.io/__cypress/runner/cypress_runner.js:5904:14)
+  From Your Spec Code:
+      at loginByPassword (webpack:///./cypress/support/commands.js:71:5)
+      at Context.eval (webpack:///./cypress/support/commands.js:85:4)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        6                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      5                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     convo_access.cy.js                                                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/clie     (1280x720)
+     nt-admin/convo_access.cy.js/Access control -- Cannot access mid -- before all ho               
+     ok (failed).png                                                                                
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/convo_access.cy.js.mp4                           
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  create_user.cy.js                                                              (4 of 15)
+
+
+  Create User page
+    1) does not create a new user with existing email address
+      cy:command ✔  visit	/createuser
+          cy:xhr ❖  GET https://127.0.0.1.sslip.io/api/v3/users?errIfNoAuth=true (532 ms)
+                    Status: 401 - Unauthorized
+        cy:fetch ➟  GET https://syndication.twitter.com/settings?session_id=8d1dd045532d4deb84107dad44ebfbd4ac7fb8c3
+                    Status: 200
+      cy:command ✔  get	input#createUserNameInput
+      cy:command ✔  type	Dummy
+      cy:command ✔  get	input#createUserEmailInput
+      cy:command ✔  type	test@polis.test
+      cy:command ✔  get	input#createUserPasswordInput
+      cy:command ✔  type	testpassword
+      cy:command ✔  get	input#createUserPasswordRepeatInput
+      cy:command ✔  type	testpassword
+      cy:command ✔  get	input#createUserEmailInput
+      cy:command ✔  clear	
+      cy:command ✔  type	moderator@polis.test
+      cy:command ✔  get	button#createUserButton
+      cy:command ✔  click	
+          cy:xhr ➟  POST https://127.0.0.1.sslip.io/api/v3/auth/new
+                    Status: 200 - OK
+      cy:command ✔  wait	@authNew
+        cy:route ➟  (authNew) POST https://127.0.0.1.sslip.io/api/v3/auth/new
+                    Status: 200
+                    Response body: {
+                      "uid": 1,
+                      "hname": "Dummy",
+                      "email": "moderator@polis.test"
+                    }
+      cy:command ✔  wrap	Object{9}
+      cy:command ✘  its	.status
+      cy:command ✘  assert	expected **200** to equal **403**
+      cy:command ✔  page load	--waiting for new page to load--
+      cy:command ✔  new url	https://127.0.0.1.sslip.io/
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/users?errIfNoAuth=true (568 ms)
+                    Status: 200 - OK
+        cy:fetch ➟  GET https://syndication.twitter.com/settings?session_id=aef2228e30771ca6ea559e17bfe525c561ea577f
+                    Status: 200
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/conversations?include_all_conversations_i_am_in=true
+                    Status: 200 - OK
+
+
+    ✓ creates a new user (5850ms)
+
+
+  1 passing (17s)
+  1 failing
+
+  1) Create User page
+       does not create a new user with existing email address:
+
+      Timed out retrying after 4000ms
+      + expected - actual
+
+      -200
+      +403
+      
+      at Context.eval (webpack:///./cypress/e2e/client-admin/create_user.cy.js:28:33)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     17 seconds                                                                       │
+  │ Spec Ran:     create_user.cy.js                                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/clie     (1280x720)
+     nt-admin/create_user.cy.js/Create User page -- does not create a new user with e               
+     xisting email address (failed).png                                                             
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp     (1 second)
+                          ress/videos/client-admin/create_user.cy.js.mp4                            
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  home.cy.js                                                                     (5 of 15)
+
+
+  Home Page
+    ✓ bare Url redirects to /home (2047ms)
+    ✓ has Sign up and Sign in links (1909ms)
+
+
+  2 passing (4s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     4 seconds                                                                        │
+  │ Spec Ran:     home.cy.js                                                                       │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/home.cy.js.mp4                                   
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  public_pages.cy.js                                                             (6 of 15)
+
+
+  Public pages
+    ✓ renders Privacy Policy (796ms)
+    ✓ renders Terms of Use (747ms)
+
+
+  2 passing (2s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     1 second                                                                         │
+  │ Spec Ran:     public_pages.cy.js                                                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/public_pages.cy.js.mp4                           
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  routes.cy.js                                                                   (7 of 15)
+
+
+  Routes
+    ✓ Page renders without trailing slash for /m/:id (2195ms)
+    ✓ Page strips trailing slash from /m/:id/ (997ms)
+    ✓ Page strips trailing slash from /m/:id/share/ (1004ms)
+    ✓ Page strips trailing slash from /m/:id/comments/accepted/ (996ms)
+    ✓ Page strips trailing slash from /account/ (989ms)
+
+
+  5 passing (6s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        5                                                                                │
+  │ Passing:      5                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     6 seconds                                                                        │
+  │ Spec Ran:     routes.cy.js                                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/routes.cy.js.mp4                                 
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  share.cy.js                                                                    (8 of 15)
+
+Timed out waiting for the browser to connect. Retrying...
+
+
+  Share page
+    ✓ has link with proper domain (2535ms)
+    ✓ shows warnings when no comments (5803ms)
+
+
+  2 passing (8s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      2                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     8 seconds                                                                        │
+  │ Spec Ran:     share.cy.js                                                                      │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/share.cy.js.mp4                                  
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  signin.cy.js                                                                   (9 of 15)
+
+
+  Signin page
+    ✓ signs in successfully (5093ms)
+
+
+  1 passing (5s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     5 seconds                                                                        │
+  │ Spec Ran:     signin.cy.js                                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-admin/signin.cy.js.mp4                                 
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  comment-translation.secrets.cy.js                                             (10 of 15)
+
+
+  Comment translation
+    ✓ prevents translation when comment already in browser language (2010ms)
+    1) allows translation when comment not in browser language
+      cy:command ✔  visit	/8jjfncnjme
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/participationInit?conversation_id=8jjfncnjme&pid=mypid&lang=en
+                    Status: 200 - OK
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Cette déclaration est en français.",
+                        "tid": 0,
+                        "created": "1674269524955",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 0.2637126182445766,
+                        "remaining": 1,
+                        "total": 1,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 1,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": false,
+                        "prioritize_seed": fa ...
+        cons:log ✱  route changed from: undefined to: 
+      cy:command ✔  contains	p, Cette déclaration est en français.
+      cy:command ✔  assert	expected **<p>** to exist in the DOM
+      cy:command ✘  get	button#showTranslationButtonVoteView
+      cy:command ✘  assert	expected **button#showTranslationButtonVoteView** to exist in the DOM
+          cy:xhr ❖  GET https://127.0.0.1.sslip.io/api/v3/math/pca2?conversation_id=8jjfncnjme&cacheBust=332745945
+                    Status: 304 - Not Modified
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=8jjfncnjme&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+
+
+
+
+  1 passing (6s)
+  1 failing
+
+  1) Comment translation
+       allows translation when comment not in browser language:
+     AssertionError: Timed out retrying after 4000ms: Expected to find element: `button#showTranslationButtonVoteView`, but never found it.
+      at Context.eval (webpack:///./cypress/e2e/client-participation/comment-translation.secrets.cy.js:30:51)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        2                                                                                │
+  │ Passing:      1                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     6 seconds                                                                        │
+  │ Spec Ran:     comment-translation.secrets.cy.js                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/clie     (1280x720)
+     nt-participation/comment-translation.secrets.cy.js/Comment translation -- allows               
+      translation when comment not in browser language (failed).png                                 
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-participation/comment-translation.secret               
+                          s.cy.js.mp4                                                               
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  embeds.cy.js                                                                  (11 of 15)
+
+
+  Embedded Conversations
+    - renders a default embed
+    - hides voting when user-can-vote (ucv) is OFF
+    - hides commenting when user-can-write (ucw) is OFF
+    - hides help text when user-can-see-help (ucsh) is OFF
+    - hides description when user-can-see-description (ucsd) is OFF
+    - hides footer when user-can-see-footer (ucsf) is OFF
+    - hides vis when user-can-see-vis (ucsv) is OFF
+    - hides topic when user-can-see-topic (ucst) is OFF
+    - creates xid when provided
+    - does not create xid when not provided
+
+
+  0 passing (39ms)
+  10 pending
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        10                                                                               │
+  │ Passing:      0                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      10                                                                               │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     embeds.cy.js                                                                     │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-participation/embeds.cy.js.mp4                         
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  i18n.cy.js                                                                    (12 of 15)
+
+
+  Interface internationalization
+    ✓ translates into Danish (1614ms)
+    ✓ translates into German (352ms)
+    ✓ translates into English (208ms)
+    ✓ translates into Spanish (248ms)
+    ✓ translates into French (188ms)
+    ✓ translates into Italian (180ms)
+    ✓ translates into Japanese (251ms)
+    ✓ translates into Dutch (286ms)
+    ✓ translates into Portugese (191ms)
+    ✓ translates into Simplified Chinese (260ms)
+    ✓ translates into Traditional Chinese (247ms)
+    ✓ translates into Slovak (232ms)
+    ✓ translates into Hebrew (334ms)
+    ✓ translates into Welsh (181ms)
+    ✓ translates into Greek (203ms)
+    ✓ translates into Ukrainian (215ms)
+
+
+  16 passing (6s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        16                                                                               │
+  │ Passing:      16                                                                               │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     5 seconds                                                                        │
+  │ Spec Ran:     i18n.cy.js                                                                       │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-participation/i18n.cy.js.mp4                           
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  integration.cy.js                                                             (13 of 15)
+
+
+  Integrated Conversations
+    - creates a convo with defaults
+    - creates a convo with topic
+    - creates a convo with vis enabled
+    - creates a convo with login required to vote
+    - creates a convo with login required to comment
+    - creates a convo with facebook login button enabled
+    - creates a convo with twitter login button enabled
+
+
+  0 passing (30ms)
+  7 pending
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        7                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      7                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     0 seconds                                                                        │
+  │ Spec Ran:     integration.cy.js                                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-participation/integration.cy.js.mp4                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  kitchensink.cy.js                                                             (14 of 15)
+
+
+  Kitchen Sink Participation
+    1) shows the visualization after 7 participants
+      cy:command ✔  visit	/3yxbjahfrc
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/participationInit?conversation_id=3yxbjahfrc&pid=mypid&lang=acceptLang
+                    Status: 200 - OK
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_an ...
+        cons:log ✱  route changed from: undefined to: 
+        cy:route ➟  (initConvo) GET https://127.0.0.1.sslip.io/api/v3/participationInit?conversation_id=3yxbjahfrc&pid=mypid&lang=acceptLang
+                    Status: 200
+                    Response body: {
+                      "user": {
+                        "uid": 7,
+                        "email": null,
+                        "hname": null,
+                        "hasFacebook": false,
+                        "hasTwitter": false,
+                        "hasXid": false,
+                        "xInfo": null,
+                        "finishedTutorial": false,
+                        "site_ids": [
+                          "polis_site_id_WSPQDtff0YaNi95wdX"
+                        ],
+                        "created": 1674269550951,
+                        "daysInTrial": 10,
+                        "planCode": 0
+                      },
+                      "ptpt": {
+                        "pid": 5,
+                        "uid": 7,
+                        "vote_count": 3,
+                        "last_interaction": "1674269551267",
+                        "subscribed": 0,
+                        "last_notified": "0",
+                        "nsli": 0,
+                        "mod": 0,
+                        "created": "1674269550959"
+                      },
+                      "nextComment": {
+                        "currentPid": 5
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type": 1,
+                        "write_type": 1,
+                        "help_type": 1,
+                        "write_hint_type": 1,
+                        "style_btn": null,
+                        "socialbtn_type": 0,
+                        "subscribe_type": 1,
+                        "branding_type": 1,
+                        "bgcolor": null,
+                        "help_bgcolor": null,
+                        "help_color": null,
+                        "email_domain": null,
+                        "use_xid_whitelist": false,
+                        "owner": 1,
+                        "org_id": 1,
+                        "context": null,
+                        "course_id": null,
+                        "lti_users_only": false,
+                        "owner_sees_participation_stats": false,
+                        "auth_needed_to_vote": false,
+                        "auth_needed_to_write": false,
+                        "auth_opt_fb": true,
+                        "auth_opt_tw": true,
+                        "auth_opt_allow_3rdparty": true,
+                        "is_slack": false,
+                        "modified": "1674269551159",
+                        "created": "1674269544697",
+                        "site_id": "polis_site_id_aSkyLQLw5yR54edY3c",
+                        "plan": 0,
+                        "auth_opt_fb_computed": true,
+                        "auth_opt_tw_computed": true,
+                        "translations": [],
+                        "ownername": "Dummy",
+                        "is_mod": false,
+                        "is_owner": false,
+                        "pp": false,
+                        "conversation_id": "3yxbjahfrc"
+                      },
+                      "votes": [
+                        {
+                          "pid": 5,
+                          "tid": 0,
+                          "vote": 1,
+                          "weight_x_32767": 0,
+                          "modified": "1674269551159"
+                        },
+                        {
+                          "pid": 5,
+                          "tid": 1,
+                          "vote": 1,
+                          "weight_x_32767": 0,
+                          "modified": "1674269550966"
+                        },
+                        {
+                          "pid": 5,
+                          "tid": 2,
+                          "vote": -1,
+                          "weight_x_32767": 0,
+                          "modified": "1674269551045"
+                        }
+                      ],
+                      "pca": "{\"mod-in\":[0],\"mod-out\":[],\"meta-tids\":[],\"base-clusters\":{\"x\":[],\"y\":[],\"id\":[],\"count\":[],\"members\":[]},\"lastModTimestamp\":1674269546033,\"lastVoteTimestamp\":0,\"math_tick\":2,\"repness\":{},\"group-votes\":{},\"group-clusters\":[]}",
+                      "famous": {},
+                      "acceptLanguage": "en-US"
+                    }
+      cons:error ✘  missing comps
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+      cy:command ✔  wait	2000
+      cy:command ✔  get	#vis_not_yet_label
+      cy:command ✔  assert	expected **<span#vis_not_yet_label.displayNone>** to be **visible**
+      cy:command ✔  get	#vis2_root > div
+      cy:command ✔  assert	expected **#vis2_root > div** not to exist in the DOM
+      cy:command ✔  clearCookies	
+      cy:command ✔  visit	/3yxbjahfrc
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/participationInit?conversation_id=3yxbjahfrc&pid=mypid&lang=acceptLang
+                    Status: 200 - OK
+      cy:command ✔  wait	@initConvo
+      cy:command ✔  get	#disagreeButton
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  in index.html in participation: response, p, r, ,
+                    {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type":  ...
+        cons:log ✱  route changed from: undefined to: 
+        cy:route ➟  (initConvo) GET https://127.0.0.1.sslip.io/api/v3/participationInit?conversation_id=3yxbjahfrc&pid=mypid&lang=acceptLang
+                    Status: 200
+                    Response body: {
+                      "user": {},
+                      "ptpt": null,
+                      "nextComment": {
+                        "txt": "Seed comment #2",
+                        "tid": 1,
+                        "created": "1674269546902",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 7.684096369794426,
+                        "remaining": 3,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "conversation": {
+                        "topic": "",
+                        "description": "",
+                        "link_url": null,
+                        "parent_url": null,
+                        "upvotes": 1,
+                        "participant_count": 6,
+                        "is_anon": false,
+                        "is_active": true,
+                        "is_draft": true,
+                        "is_public": true,
+                        "is_data_open": false,
+                        "profanity_filter": true,
+                        "spam_filter": true,
+                        "strict_moderation": true,
+                        "prioritize_seed": false,
+                        "vis_type": 1,
+                        "write_type": 1,
+                        "help_type": 1,
+                        "write_hint_type": 1,
+                        "style_btn": null,
+                        "socialbtn_type": 0,
+                        "subscribe_type": 1,
+                        "branding_type": 1,
+                        "bgcolor": null,
+                        "help_bgcolor": null,
+                        "help_color": null,
+                        "email_domain": null,
+                        "use_xid_whitelist": false,
+                        "owner": 1,
+                        "org_id": 1,
+                        "context": null,
+                        "course_id": null,
+                        "lti_users_only": false,
+                        "owner_sees_participation_stats": false,
+                        "auth_needed_to_vote": false,
+                        "auth_needed_to_write": false,
+                        "auth_opt_fb": true,
+                        "auth_opt_tw": true,
+                        "auth_opt_allow_3rdparty": true,
+                        "is_slack": false,
+                        "modified": "1674269551159",
+                        "created": "1674269544697",
+                        "site_id": "polis_site_id_aSkyLQLw5yR54edY3c",
+                        "plan": 0,
+                        "auth_opt_fb_computed": true,
+                        "auth_opt_tw_computed": true,
+                        "translations": [],
+                        "ownername": "Dummy",
+                        "is_mod": false,
+                        "is_owner": false,
+                        "pp": false,
+                        "conversation_id": "3yxbjahfrc"
+                      },
+                      "votes": [],
+                      "pca": "{\"n\":1,\"pca\":{\"comps\":[[0,0,0]],\"center\":[1,1,-1],\"comment-extremity\":[0,0,0],\"comment-projection\":[[0,0,0],[0,0,0]]},\"tids\":[0,1,2],\"mod-in\":[1,2],\"n-cmts\":3,\"in-conv\":[5],\"mod-out\":[],\"repness\":{\"0\":[{\"tid\":2,\"p-test\":1.4142135623730951,\"n-agree\":1,\"repness\":1.333333333333333,\"n-trials\":1,\"n-success\":1,\"p-success\":0.6666666666666667,\"best-agree\":true,\"repful-for\":\"agree\",\"repness-test\":0}]},\"consensus\":{\"agree\":[{\"tid\":2,\"p-test\":1.4142135623730951,\"n-trials\":1,\"n-success\":1,\"p-success\":0.6666666666666667}],\"disagree\":[{\"tid\":0,\"p-test\":1.4142135623730951,\"n-trials\":1,\"n-success\":1,\"p-success\":0.6666666666666667},{\"tid\":1,\"p-test\":1.4142135623730951,\"n-trials\":1,\"n-success\":1,\"p-success\":0.6666666666666667}]},\"meta-tids\":[],\"votes-base\":{\"0\":{\"A\":[0],\"D\":[1],\"S\":[1]},\"1\":{\"A\":[0],\"D\":[1],\"S\":[1]},\"2\":{\"A\":[1],\"D\":[0],\"S\":[1]}},\"group-votes\":{\"0\":{\"votes\":{\"0\":{\"A\":0,\"D\":1,\"S\":1},\"1\":{\"A\":0,\"D\":1,\"S\":1},\"2\":{\"A\":1,\"D\":0,\"S\":1}},\"n-members\":1,\"id\":0}},\"base-clusters\":{\"x\":[0],\"y\":[0],\"id\":[0],\"count\":[1],\"members\":[[5]]},\"group-clusters\":[{\"id\":0,\"center\":[0,0],\"members\":[0]}],\"lastModTimestamp\":null,\"user-vote-counts\":{\"5\":3},\"lastVoteTimestamp\":1674269551159,\"comment-priorities\":{\"0\":5.0625,\"1\":5.0625,\"2\":5.0625},\"group-aware-consensus\":{\"0\":0.3333333333333333,\"1\":0.3333333333333333,\"2\":0.6666666666666666},\"math_tick\":4}",
+                      "famous": {},
+                      "acceptLanguage": "en-US"
+                    }
+      cy:command ✔  click	
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/votes?conversation_id=3yxbjahfrc&pid=mypid
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&gid=-1&translate=true&lang=en-US
+                    Status: 200 - OK
+        cons:log ✱  aftershow:majority
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+        cons:log ✱  beforehide:majority
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+        cons:log ✱  votesByMe.add
+          cy:xhr ➟  POST https://127.0.0.1.sslip.io/api/v3/votes
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+        cy:route ➟  (newVote) POST https://127.0.0.1.sslip.io/api/v3/votes
+                    Status: 200
+                    Response body: {
+                      "nextComment": {
+                        "txt": "Seed comment #1",
+                        "tid": 0,
+                        "created": "1674269546033",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 3.5196045626150156,
+                        "remaining": 2,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "currentPid": 6
+                    }
+      cy:command ✔  wait	@newVote
+      cy:command ✔  get	#disagreeButton
+      cy:command ✔  click	
+          cy:xhr ➟  POST https://127.0.0.1.sslip.io/api/v3/votes
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+        cy:route ➟  (newVote) POST https://127.0.0.1.sslip.io/api/v3/votes
+                    Status: 200
+                    Response body: {
+                      "nextComment": {
+                        "txt": "Seed comment #3",
+                        "tid": 2,
+                        "created": "1674269547545",
+                        "tweet_id": null,
+                        "quote_src_url": null,
+                        "is_seed": true,
+                        "is_meta": false,
+                        "lang": null,
+                        "pid": 0,
+                        "randomN": 1.9993553206784878,
+                        "remaining": 1,
+                        "total": 3,
+                        "translations": []
+                      },
+                      "currentPid": 6
+                    }
+      cy:command ✔  wait	@newVote
+      cy:command ✔  get	#disagreeButton
+      cy:command ✔  click	
+          cy:xhr ➟  POST https://127.0.0.1.sslip.io/api/v3/votes
+                    Status: 200 - OK
+        cons:log ✱  votesByMe.add
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+        cy:route ➟  (newVote) POST https://127.0.0.1.sslip.io/api/v3/votes
+                    Status: 200
+                    Response body: {
+                      "currentPid": 6
+                    }
+      cy:command ✔  wait	@newVote
+      cy:command ✔  wait	4000
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+      cy:command ✘  get	#vis_not_yet_label
+      cy:command ✘  assert	expected **<span#vis_not_yet_label.displayNone>** not to be **visible**
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/nextComment?not_voted_by_pid=mypid&limit=1&include_social=true&conversation_id=3yxbjahfrc&lang=en
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/math/pca2?conversation_id=3yxbjahfrc&cacheBust=805713510
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/votes/famous?conversation_id=3yxbjahfrc&math_tick=6
+                    Status: 200 - OK
+       cons:warn ❖  not sure why a node would disappear
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/comments?conversation_id=3yxbjahfrc&include_social=true&translate=true&lang=en-US
+                    Status: 200 - OK
+          cy:xhr ➟  GET https://127.0.0.1.sslip.io/api/v3/votes?conversation_id=3yxbjahfrc&pid=mypid
+                    Status: 200 - OK
+
+
+
+
+  0 passing (18s)
+  1 failing
+
+  1) Kitchen Sink Participation
+       shows the visualization after 7 participants:
+     AssertionError: Timed out retrying after 4000ms: expected '<span#vis_not_yet_label.displayNone>' not to be 'visible'
+      at Context.eval (webpack:///./cypress/e2e/client-participation/kitchensink.cy.js:65:33)
+
+
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        1                                                                                │
+  │ Passing:      0                                                                                │
+  │ Failing:      1                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  1                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     17 seconds                                                                       │
+  │ Spec Ran:     kitchensink.cy.js                                                                │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Screenshots)
+
+  -  /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cypress/screenshots/clie     (1280x720)
+     nt-participation/kitchensink.cy.js/Kitchen Sink Participation -- shows the visua               
+     lization after 7 participants (failed).png                                                     
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp     (1 second)
+                          ress/videos/client-participation/kitchensink.cy.js.mp4                    
+
+
+────────────────────────────────────────────────────────────────────────────────────────────────────
+                                                                                                    
+  Running:  social-login.cy.js                                                            (15 of 15)
+
+
+  Social login buttons
+    ✓ allows Facebook to be disabled (4831ms)
+    ✓ allows Twitter to be disabled (2886ms)
+    ✓ allows both login providers to be enabled (1874ms)
+    ✓ allows both login providers to be hidden (1751ms)
+
+
+  4 passing (11s)
+
+
+  (Results)
+
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ Tests:        4                                                                                │
+  │ Passing:      4                                                                                │
+  │ Failing:      0                                                                                │
+  │ Pending:      0                                                                                │
+  │ Skipped:      0                                                                                │
+  │ Screenshots:  0                                                                                │
+  │ Video:        true                                                                             │
+  │ Duration:     11 seconds                                                                       │
+  │ Spec Ran:     social-login.cy.js                                                               │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+
+  (Video)
+
+  -  Started processing:  Compressing to 32 CRF                                                     
+  -  Finished processing: /Users/crkrenn/Dropbox/code/polis_dir/crkrenn_clean/e2e/cyp    (0 seconds)
+                          ress/videos/client-participation/social-login.cy.js.mp4                   
+
+
+====================================================================================================
+
+  (Run Finished)
+
+
+       Spec                                              Tests  Passing  Failing  Pending  Skipped  
+  ┌────────────────────────────────────────────────────────────────────────────────────────────────┐
+  │ ✖  emails.cy.js                             788ms        2        -        1        -        1 │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  configure.cy.js                          572ms        2        -        2        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  convo_access.cy.js                       313ms        6        -        1        -        5 │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  create_user.cy.js                        00:17        2        1        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  home.cy.js                               00:04        2        2        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  public_pages.cy.js                       00:01        2        2        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  routes.cy.js                             00:06        5        5        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  share.cy.js                              00:08        2        2        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  signin.cy.js                             00:05        1        1        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  comment-translation.secrets.cy.js        00:06        2        1        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  embeds.cy.js                              37ms       10        -        -       10        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  i18n.cy.js                               00:05       16       16        -        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  integration.cy.js                         31ms        7        -        -        7        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✖  kitchensink.cy.js                        00:17        1        -        1        -        - │
+  ├────────────────────────────────────────────────────────────────────────────────────────────────┤
+  │ ✔  social-login.cy.js                       00:11        4        4        -        -        - │
+  └────────────────────────────────────────────────────────────────────────────────────────────────┘
+    ✖  6 of 15 failed (40%)                     01:25       64       34        7       17        6  
+
